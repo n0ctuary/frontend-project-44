@@ -1,7 +1,11 @@
 import * as pairs from '@hexlet/pairs';
 import readlineSync from 'readline-sync';
 
-const getRandomIntegerFrom1to50 = () => Math.floor((Math.random() * 50) + 1);
+const getRandomIntInclusive = (min, max) => {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
 
 const greetUser = () => {
   console.log('Welcome to the Brain Games!');
@@ -29,4 +33,4 @@ const checkUserAnswers = (userAnswer, correctAnswer, i, userName) => {
   }
 };
 
-export { getRandomIntegerFrom1to50, greetUser, getUserAnswer, checkUserAnswers };
+export { getRandomIntInclusive, greetUser, getUserAnswer, checkUserAnswers };

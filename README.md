@@ -9,3 +9,6 @@ https://asciinema.org/a/cZqV80YbYJuIK09Pg54LASkzg
 
 ### Brain Calc game demo
 https://asciinema.org/a/OSuQag5M2HlSu0iQSGTAQOxg6
+
+### Brain GCD game demo
+https://asciinema.org/a/ICMm5c6uzgoJI0FBDUkse9TmX

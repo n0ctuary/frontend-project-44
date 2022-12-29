@@ -1,6 +1,6 @@
 import { cons, car, cdr } from '@hexlet/pairs';
 import {
-  getRandomIntegerFrom1to50, greetUser, getUserAnswer, checkUserAnswers,
+  getRandomIntInclusive, greetUser, getUserAnswer, checkUserAnswers,
 } from '../src/index.js';
 
 const getRandomArithmeticOperatorAsString = () => {
@@ -24,7 +24,7 @@ const doTheMathWithArithmeticOperatorAsString = (x, y, operator) => {
 const playCalculatorGame = () => {
   const userName = greetUser();
   for (let i = 0; ; i += 1) {
-    const operands = cons(getRandomIntegerFrom1to50(), getRandomIntegerFrom1to50());
+    const operands = cons(getRandomIntInclusive(1, 50), getRandomIntInclusive(1, 50));
     const arithmeticOperatorAsString = getRandomArithmeticOperatorAsString();
     const questionExpressionAsString = `${car(operands)} ${arithmeticOperatorAsString} ${cdr(operands)}`;
     const correctAnswer = String(doTheMathWithArithmeticOperatorAsString(
