@@ -1,4 +1,3 @@
-import * as pairs from '@hexlet/pairs';
 import readlineSync from 'readline-sync';
 
 const getRandomIntInclusive = (min, max) => {
@@ -33,4 +32,6 @@ const checkUserAnswers = (userAnswer, correctAnswer, i, userName) => {
   }
 };
 
-export { getRandomIntInclusive, greetUser, getUserAnswer, checkUserAnswers };
+export {
+  getRandomIntInclusive, greetUser, getUserAnswer, checkUserAnswers,
+};

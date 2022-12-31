@@ -18,7 +18,9 @@ const playGCDGame = () => {
   const userName = greetUser();
   for (let i = 0; ; i += 1) {
     const questionNumbers = cons(getRandomIntInclusive(10, 50), getRandomIntInclusive(10, 50));
-    const correctAnswer = String(findGreatestCommonDivisor(car(questionNumbers), cdr(questionNumbers)));
+    const correctAnswer = String(
+      findGreatestCommonDivisor(car(questionNumbers), cdr(questionNumbers)),
+    );
     console.log('Find the greatest common divisor of given numbers.');
     const userAnswer = getUserAnswer(`${car(questionNumbers)} ${cdr(questionNumbers)}`);
     const gameStatus = checkUserAnswers(userAnswer, correctAnswer, i, userName);
