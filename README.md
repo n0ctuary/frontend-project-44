@@ -15,3 +15,6 @@ https://asciinema.org/a/ICMm5c6uzgoJI0FBDUkse9TmX
 
 ### Brain Progression game demo
 https://asciinema.org/a/j6iU6iQIRhk2K48QNDZvgEQWp
+
+### Brain Prime game demo
+https://asciinema.org/a/XzYZ5ooRCxbhswh2BdCV5q3Am
