@@ -1,5 +1,6 @@
+import { cons } from '@hexlet/pairs';
 import {
-  getRandomIntInclusive, greetUser, getUserAnswer, checkUserAnswers,
+  getRandomIntInclusive, playGameUntilThreeWinsOrOneLoss,
 } from '../src/index.js';
 
 const getRandomArythmeticProgression = () => {
@@ -12,21 +13,21 @@ const getRandomArythmeticProgression = () => {
   }
   return result;
 };
+const generalQuestion = 'What number is missing in the progression?';
+const generateGameData = () => {
+  const progression = getRandomArythmeticProgression();
+  const questionNumIndex = getRandomIntInclusive(0, progression.length - 1);
+  const correctAnswer = String(progression[questionNumIndex]);
+  progression[questionNumIndex] = '..';
+  const specificQuestion = `${progression.join(' ')}`;
+  return cons(specificQuestion, correctAnswer);
+};
 
 const playProgressionGame = () => {
-  const userName = greetUser();
-  for (let i = 0; ; i += 1) {
-    const progression = getRandomArythmeticProgression();
-    const questionNumIndex = getRandomIntInclusive(0, progression.length - 1);
-    const correctAnswer = String(progression[questionNumIndex]);
-    progression[questionNumIndex] = '..';
-    console.log('What number is missing in the progression?');
-    const userAnswer = getUserAnswer(`${progression.join(' ')}`);
-    const gameStatus = checkUserAnswers(userAnswer, correctAnswer, i, userName);
-    if (gameStatus === 'finished') {
-      break;
-    }
-  }
+  playGameUntilThreeWinsOrOneLoss(
+    generalQuestion,
+    generateGameData,
+  );
 };
 
 export default playProgressionGame;

@@ -1,21 +1,21 @@
+import { cons } from '@hexlet/pairs';
 import {
-  getRandomIntInclusive, greetUser, getUserAnswer, checkUserAnswers,
+  getRandomIntInclusive, playGameUntilThreeWinsOrOneLoss,
 } from '../src/index.js';
 
 const isEven = (num) => num % 2 === 0;
+const generalQuestion = 'Answer "yes" if the number is even, otherwise answer "no".';
+const generateGameData = () => {
+  const specificQuestion = getRandomIntInclusive(1, 50);
+  const correctAnswer = isEven(specificQuestion) ? 'yes' : 'no';
+  return cons(specificQuestion, correctAnswer);
+};
 
 const playIsEvenGame = () => {
-  const userName = greetUser();
-  for (let i = 0; ; i += 1) {
-    const questionNum = getRandomIntInclusive(1, 50);
-    const correctAnswer = isEven(questionNum) ? 'yes' : 'no';
-    console.log('Answer "yes" if the number is even, otherwise answer "no".');
-    const userAnswer = getUserAnswer(`${questionNum}`);
-    const gameStatus = checkUserAnswers(userAnswer, correctAnswer, i, userName);
-    if (gameStatus === 'finished') {
-      break;
-    }
-  }
+  playGameUntilThreeWinsOrOneLoss(
+    generalQuestion,
+    generateGameData,
+  );
 };
 
 export default playIsEvenGame;

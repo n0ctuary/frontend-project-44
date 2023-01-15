@@ -1,6 +1,6 @@
 import { cons, car, cdr } from '@hexlet/pairs';
 import {
-  getRandomIntInclusive, greetUser, getUserAnswer, checkUserAnswers,
+  getRandomIntInclusive, playGameUntilThreeWinsOrOneLoss,
 } from '../src/index.js';
 
 const findGreatestCommonDivisor = (a, b) => {
@@ -13,21 +13,21 @@ const findGreatestCommonDivisor = (a, b) => {
   };
   return a;
 };
+const generalQuestion = 'Find the greatest common divisor of given numbers.';
+const generateGameData = () => {
+  const questionNumbers = cons(getRandomIntInclusive(10, 50), getRandomIntInclusive(10, 50));
+  const specificQuestion = `${car(questionNumbers)} ${cdr(questionNumbers)}`;
+  const correctAnswer = String(
+    findGreatestCommonDivisor(car(questionNumbers), cdr(questionNumbers)),
+  );
+  return cons(specificQuestion, correctAnswer);
+};
 
 const playGCDGame = () => {
-  const userName = greetUser();
-  for (let i = 0; ; i += 1) {
-    const questionNumbers = cons(getRandomIntInclusive(10, 50), getRandomIntInclusive(10, 50));
-    const correctAnswer = String(
-      findGreatestCommonDivisor(car(questionNumbers), cdr(questionNumbers)),
-    );
-    console.log('Find the greatest common divisor of given numbers.');
-    const userAnswer = getUserAnswer(`${car(questionNumbers)} ${cdr(questionNumbers)}`);
-    const gameStatus = checkUserAnswers(userAnswer, correctAnswer, i, userName);
-    if (gameStatus === 'finished') {
-      break;
-    }
-  }
+  playGameUntilThreeWinsOrOneLoss(
+    generalQuestion,
+    generateGameData,
+  );
 };
 
 export default playGCDGame;

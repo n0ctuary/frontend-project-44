@@ -1,5 +1,6 @@
+import { cons } from '@hexlet/pairs';
 import {
-  getRandomIntInclusive, greetUser, getUserAnswer, checkUserAnswers,
+  getRandomIntInclusive, playGameUntilThreeWinsOrOneLoss,
 } from '../src/index.js';
 
 const isPrime = (num) => {
@@ -13,20 +14,18 @@ const isPrime = (num) => {
   }
   return true;
 };
+const generalQuestion = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const generateGameData = () => {
+  const specificQuestion = getRandomIntInclusive(1, 131);
+  const correctAnswer = isPrime(specificQuestion) ? 'yes' : 'no';
+  return cons(specificQuestion, correctAnswer);
+};
 
 const playIsPrimeGame = () => {
-  const userName = greetUser();
-  for (let i = 0; ; i += 1) {
-    const questionNum = getRandomIntInclusive(1, 131);
-    const correctAnswer = isPrime(questionNum) ? 'yes' : 'no';
-    console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-    const userAnswer = getUserAnswer(`${questionNum}`);
-    const gameStatus = checkUserAnswers(userAnswer, correctAnswer, i, userName);
-    if (gameStatus === 'finished') {
-      break;
-    }
-  }
-
+  playGameUntilThreeWinsOrOneLoss(
+    generalQuestion,
+    generateGameData,
+  );
 };
 
 export default playIsPrimeGame;
