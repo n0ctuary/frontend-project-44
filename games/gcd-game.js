@@ -3,14 +3,16 @@ import {
   getRandomIntInclusive, playGameUntilThreeWinsOrOneLoss,
 } from '../src/index.js';
 
-const findGreatestCommonDivisor = (a, b) => {
+const findGreatestCommonDivisor = (num1, num2) => {
+  let a = num1;
+  let b = num2;
   while (a !== b) {
     if (a > b) {
-      a = a - b;
+      a -= b;
     } else {
-      b = b - a;
+      b -= a;
     }
-  };
+  }
   return a;
 };
 const generalQuestion = 'Find the greatest common divisor of given numbers.';

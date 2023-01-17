@@ -2,9 +2,9 @@ import { car, cdr } from '@hexlet/pairs';
 import readlineSync from 'readline-sync';
 
 const getRandomIntInclusive = (min, max) => {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  const roundedUpMin = Math.ceil(min);
+  const roundedDownMax = Math.floor(max);
+  return Math.floor(Math.random() * (roundedDownMax - roundedUpMin + 1)) + roundedUpMin;
 };
 
 const greetUser = () => {
