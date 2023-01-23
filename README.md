@@ -5,23 +5,23 @@
 
 ### Five little games to warm up your brain:
 
-Brain Even — determine if the number is even
+Brain Even — determine if the number is even\
 demo:
 https://asciinema.org/a/cZqV80YbYJuIK09Pg54LASkzg
 
-Brain Calc — calculate the result of an expression
+Brain Calc — calculate the result of an expression\
 demo:
 https://asciinema.org/a/OSuQag5M2HlSu0iQSGTAQOxg6
 
-Brain GCD — find the greatest common divisor
+Brain GCD — find the greatest common divisor\
 demo:
 https://asciinema.org/a/ICMm5c6uzgoJI0FBDUkse9TmX
 
-Brain Progression — find the missing number in progression
+Brain Progression — find the missing number in progression\
 demo:
 https://asciinema.org/a/j6iU6iQIRhk2K48QNDZvgEQWp
 
-Brain Prime — determine if the number is prime
+Brain Prime — determine if the number is prime\
 demo:
 https://asciinema.org/a/XzYZ5ooRCxbhswh2BdCV5q3Am
 
