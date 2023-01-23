@@ -1,7 +1,5 @@
-import { cons, car, cdr } from '@hexlet/pairs';
-import {
-  getRandomIntInclusive, playGameUntilThreeWinsOrOneLoss,
-} from '../src/index.js';
+import getRandomIntInclusive from '../utils.js';
+import playGame from '../index.js';
 
 const getRandomArithmeticOperatorAsString = () => {
   const signs = ['+', '-', '*'];
@@ -21,19 +19,19 @@ const doTheMathWithArithmeticOperatorAsString = (x, y, operator) => {
 };
 const generalQuestion = 'What is the result of the expression?';
 const generateGameData = () => {
-  const operands = cons(getRandomIntInclusive(1, 50), getRandomIntInclusive(1, 50));
+  const operands = [getRandomIntInclusive(1, 50), getRandomIntInclusive(1, 50)];
   const arithmeticOperatorAsString = getRandomArithmeticOperatorAsString();
-  const specificQuestion = `${car(operands)} ${arithmeticOperatorAsString} ${cdr(operands)}`;
+  const specificQuestion = `${operands[0]} ${arithmeticOperatorAsString} ${operands[1]}`;
   const correctAnswer = String(doTheMathWithArithmeticOperatorAsString(
-    car(operands),
-    cdr(operands),
+    operands[0],
+    operands[1],
     arithmeticOperatorAsString,
   ));
-  return cons(specificQuestion, correctAnswer);
+  return [specificQuestion, correctAnswer];
 };
 
 const playCalculatorGame = () => {
-  playGameUntilThreeWinsOrOneLoss(
+  playGame(
     generalQuestion,
     generateGameData,
   );

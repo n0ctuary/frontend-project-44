@@ -1,7 +1,5 @@
-import { cons } from '@hexlet/pairs';
-import {
-  getRandomIntInclusive, playGameUntilThreeWinsOrOneLoss,
-} from '../src/index.js';
+import getRandomIntInclusive from '../utils.js';
+import playGame from '../index.js';
 
 const getRandomArythmeticProgression = () => {
   const startNum = getRandomIntInclusive(3, 29);
@@ -20,11 +18,11 @@ const generateGameData = () => {
   const correctAnswer = String(progression[questionNumIndex]);
   progression[questionNumIndex] = '..';
   const specificQuestion = `${progression.join(' ')}`;
-  return cons(specificQuestion, correctAnswer);
+  return [specificQuestion, correctAnswer];
 };
 
 const playProgressionGame = () => {
-  playGameUntilThreeWinsOrOneLoss(
+  playGame(
     generalQuestion,
     generateGameData,
   );
