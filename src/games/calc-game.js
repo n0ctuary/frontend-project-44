@@ -1,12 +1,8 @@
 import getRandomIntInclusive from '../utils.js';
 import playGame from '../index.js';
 
-const getRandomArithmeticOperatorAsString = () => {
-  const signs = ['+', '-', '*'];
-  return signs[Math.floor(Math.random() * 3)];
-};
-const doTheMathWithArithmeticOperatorAsString = (x, y, operator) => {
-  switch (operator) {
+const calculate = (x, y, sign) => {
+  switch (sign) {
     case '+':
       return x + y;
     case '-':
@@ -14,25 +10,26 @@ const doTheMathWithArithmeticOperatorAsString = (x, y, operator) => {
     case '*':
       return x * y;
     default:
-      throw new Error(`Unknown operator: '${operator}'`);
+      throw new Error(`Unknown sign: '${sign}'`);
   }
 };
-const generalQuestion = 'What is the result of the expression?';
+const description = 'What is the result of the expression?';
 const generateGameData = () => {
   const operands = [getRandomIntInclusive(1, 50), getRandomIntInclusive(1, 50)];
-  const arithmeticOperatorAsString = getRandomArithmeticOperatorAsString();
-  const specificQuestion = `${operands[0]} ${arithmeticOperatorAsString} ${operands[1]}`;
-  const correctAnswer = String(doTheMathWithArithmeticOperatorAsString(
+  const signs = ['+', '-', '*'];
+  const sign = signs[getRandomIntInclusive(0, 2)];
+  const question = `${operands[0]} ${sign} ${operands[1]}`;
+  const correctAnswer = String(calculate(
     operands[0],
     operands[1],
-    arithmeticOperatorAsString,
+    sign,
   ));
-  return [specificQuestion, correctAnswer];
+  return [question, correctAnswer];
 };
 
 const playCalculatorGame = () => {
   playGame(
-    generalQuestion,
+    description,
     generateGameData,
   );
 };

@@ -13,19 +13,19 @@ const findGreatestCommonDivisor = (num1, num2) => {
   }
   return a;
 };
-const generalQuestion = 'Find the greatest common divisor of given numbers.';
+const description = 'Find the greatest common divisor of given numbers.';
 const generateGameData = () => {
   const questionNumbers = [getRandomIntInclusive(10, 50), getRandomIntInclusive(10, 50)];
-  const specificQuestion = `${questionNumbers[0]} ${questionNumbers[1]}`;
+  const question = `${questionNumbers[0]} ${questionNumbers[1]}`;
   const correctAnswer = String(
     findGreatestCommonDivisor(questionNumbers[0], questionNumbers[1]),
   );
-  return [specificQuestion, correctAnswer];
+  return [question, correctAnswer];
 };
 
 const playGCDGame = () => {
   playGame(
-    generalQuestion,
+    description,
     generateGameData,
   );
 };

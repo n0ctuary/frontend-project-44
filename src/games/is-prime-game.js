@@ -12,16 +12,16 @@ const isPrime = (num) => {
   }
   return true;
 };
-const generalQuestion = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const generateGameData = () => {
-  const specificQuestion = getRandomIntInclusive(1, 131);
-  const correctAnswer = isPrime(specificQuestion) ? 'yes' : 'no';
-  return [specificQuestion, correctAnswer];
+  const questionNum = getRandomIntInclusive(1, 131);
+  const correctAnswer = isPrime(questionNum) ? 'yes' : 'no';
+  return [String(questionNum), correctAnswer];
 };
 
 const playIsPrimeGame = () => {
   playGame(
-    generalQuestion,
+    description,
     generateGameData,
   );
 };
